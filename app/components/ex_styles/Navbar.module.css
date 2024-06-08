@@ -1,0 +1,28 @@
+
+@keyframes pixelate {
+    0% {
+      filter: contrast(200%) saturate(200%) blur(0) grayscale(0);
+    }
+    50% {
+      filter: contrast(150%) saturate(150%) blur(2px) grayscale(50%);
+    }
+    100% {
+      filter: contrast(200%) saturate(200%) blur(0) grayscale(0);
+    }
+  }
+  
+  .animatePixelate {
+    animation: pixelate 5s infinite;
+  }
+
+  .blurEffect {
+    transition: filter 0.3s;
+  }
+  
+  .blurEffect:hover {
+    filter: blur(2px);
+  }
+  
+  .blurEffect:active {
+    filter: blur(4px);
+  }
