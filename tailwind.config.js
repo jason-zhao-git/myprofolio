@@ -1,3 +1,5 @@
+const { Cedarville_Cursive } = require('next/font/google');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -7,6 +9,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        pixel: ['Minecraftia', 'sans-serif'],
+        vt323: ['VT323','monospace'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

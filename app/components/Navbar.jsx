@@ -7,6 +7,7 @@ import NavLink from "./NavLink";
 import Image from "next/image";
 import styles from "./ex_styles/Navbar.module.css";
 
+
 const navLinks = [
   {
     title: "About",

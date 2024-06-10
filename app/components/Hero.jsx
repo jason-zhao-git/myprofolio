@@ -8,7 +8,7 @@ import { TypeAnimation } from "react-type-animation";
 const Hero = () => {
   return (
     <section>
-      <div className="grid grid-cols-1 sm:grid-cols-12 gap-4">
+      <div className=" font-pixel grid grid-cols-1 sm:grid-cols-12 gap-4">
         {/*everything about avatar image */}
         <div className="col-span-4 place-self-center mr-8 mt-4 lg:mt-0 ml-12 transform translate-x-8 sm:translate-x-0">
           <div className="rounded-full bg-[#343434] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px] relative">
@@ -23,10 +23,10 @@ const Hero = () => {
           {/*Hire Me and download Resume buttons */}
           <div className="mt-12 flex flex-col items-center lg:flex-center lg:items-center lg:flex-row lg:justify-center">
             <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-2 lg:mr-4 mb-4 border bg-white hover:bg-slate-300 text-slate-800 font-semibold">
-              My Resume
+              <p className="mt-2">My Resume</p>
             </button>
             <button className="px-5 py-3 w-full sm:w-fit rounded-full mr-2 mb-4 bg-transparent hover:bg-gradient-to-br from-blue-700 via-teal-600 to-green-700 p-8 border-2 border-white text-white font-semibold">
-              Contact Me
+              <p className="mt-2">Contact Me</p>
             </button>
           </div>
         </div>
@@ -39,33 +39,31 @@ const Hero = () => {
             </span>
             <br></br>
             <TypeAnimation
+              className="mt-8"
               sequence={[
                 // Same substring at the start will only be typed out once, initially
-                "Jingqiao",
+                "Jingqiao (Jason)",
                 2000, // wait 1s before replacing "Mice" with "Hamsters"
                 "A Software Engineer",
                 3000,
                 "Awkwardly Social...",
                 1000,
-                "Also Into Bioinformatics",
+                "Into Bioinformatics",
                 1000,
               ]}
               wrapper="span"
               speed={10}
-              style={{display: "inline-block"}}
+              style={{ display: "inline-block" }}
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BA] text-xl lg:text-2xl mb-6 mt-6">
-            Passionate software enthusiast who are{" "}
-            <strong>comfortable with discomfort</strong> and enjoy turning challenges into
-            opportunities. Interested in{" "}
-            <strong>full stack web development</strong> and <strong>AI</strong>.</p>
-      
-          <p className="text-[#ADB7BA] text-xl lg:text-2xl mb-6">
-            A <strong>collaborative team player</strong> with the adaptability to
-            thrive both independently and in group settings, fueled by an
-            unwavering determination to achieve excellence.
+          <p className="text-[#ADB7BA] text-xl lg:text-3xl mb-6 mt-6 tracking-wider leading-loose">
+            “The programmer, like the poet, works only slightly removed from
+            pure thought-stuff. He builds his castles in the air, from air,
+            creating by exertion of the imagination.” 
+            <br></br>
+            <br></br>
+            -- Frederick P. Brooks, MMM{" "}
           </p>
         </div>
       </div>

@@ -20,9 +20,19 @@
   }
   
   .blurEffect:hover {
-    filter: blur(2px);
+    filter: blur(1px);
   }
   
   .blurEffect:active {
-    filter: blur(4px);
+    filter: blur(3px);
   }
+
+
+  @font-face {
+    font-family: 'Minecraftia';
+    src: url('../../../public/fonts/Minecraftia-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
