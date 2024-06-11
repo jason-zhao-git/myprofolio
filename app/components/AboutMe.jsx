@@ -3,7 +3,7 @@ import styles from "./ex_styles/Navbar.module.css";
 
 const AboutMe = () => {
   return (
-    <section class="text-white text-center place-self-center font-pixel grid grid-cols-1 sm:grid-cols-12 gap-4">
+    <section class="text-white text-center place-self-center font-pixel grid grid-cols-1 sm:grid-cols-12 gap-4 py-12">
       <div class="col-span-1 sm:col-start-2 sm:col-span-10 mt-10 md:mt-16 text-left flex flex-col h-full place-self-center">
         <h1 class="text-5xl font-bold text-center text-white mb-4">About Me</h1>
         <div class="text-[#ADB7BA] text-lg lg:text-2xl text-center lg:text-left mb-6 mt-6 ml-10 tracking-wider leading-loose">

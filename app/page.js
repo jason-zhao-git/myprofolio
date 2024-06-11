@@ -17,6 +17,10 @@ export default function Home() {
         <AboutMe />
       </container>
 
+      <container class="container mx-auto px-12 py-4" id="skills"> 
+        <Techstack />
+      </container>
+
       
       
     </main>
