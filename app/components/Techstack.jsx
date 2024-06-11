@@ -21,7 +21,7 @@ const Techstack = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-4">
         <div className="col-span-1 md:col-span-3"></div>
         <div className="col-span-1 md:col-span-6 ">
-          <div className="h-60">
+          <div className="h-72">
             <Scene />
           </div>
         </div>

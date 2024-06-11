@@ -25,6 +25,9 @@ export function Model(props) {
 
   const handleClick = () => {
     setOpen(!open);
+    actions['Chest_0_A|Chest_0_AAction'].repetitions = 1
+    actions['Chest_0_A|Chest_0_AAction'].play();
+    actions['Chest_0_A|Chest_0_AAction'].reset();
   };
 
   return (
