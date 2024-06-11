@@ -4,10 +4,12 @@ import React, { Suspense, useState } from "react";
 import dynamic from "next/dynamic";
 
 // Load Scene component dynamically to avoid SSR issues with Three.js
-const Scene = dynamic(() => import("../components/Three/Scene"), { ssr: false });
-
+const ChestScene = dynamic(() => import("../components/Three/ChestScene"), {
+  ssr: false,
+});
 
 const Techstack = () => {
+  const [chestopen, setchestOpen] = useState(false);
   return (
     <section className="font-pixel p-10">
       {/* Title on top */}
@@ -22,7 +24,7 @@ const Techstack = () => {
         <div className="col-span-1 md:col-span-3"></div>
         <div className="col-span-1 md:col-span-6 ">
           <div className="h-72">
-            <Scene />
+            <ChestScene open={chestopen} setOpen={setchestOpen} />
           </div>
         </div>
         <div className="col-span-1 md:col-span-3"></div>
@@ -42,7 +44,6 @@ const Techstack = () => {
         </div>
       </div>
     </section>
-
   );
 };
 

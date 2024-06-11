@@ -25,9 +25,12 @@ export function Model(props) {
     if (props.open) {
       setPlay(true)
       actions['Chest_0_A|Chest_0_AAction'].repetitions = 1;
-      soundChest.volume = 0.3;
-      soundChest.play()
-      actions['Chest_0_A|Chest_0_AAction'].play();
+      soundChest.volume = 0.4;
+      
+      soundChest.play();
+      setTimeout(() => {
+        actions['Chest_0_A|Chest_0_AAction'].play();
+      }, 50);
       actions['Chest_0_A|Chest_0_AAction'].reset();
       setTimeout(() => {
         setPlay(false);
