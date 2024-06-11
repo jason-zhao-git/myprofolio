@@ -7,27 +7,38 @@ Source: https://sketchfab.com/3d-models/minecraft-chest-83c5b03288e9416fbe65616e
 Title: Minecraft Chest
 */
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useGLTF, useAnimations } from '@react-three/drei';
-import { useFrame } from '@react-three/fiber';
-import { useSpring, animated } from '@react-spring/three';
+// Chest Sound
+import chestsound from '../../../assets/sound/chestOpen.mp3';
+
+const soundChest = new Audio(chestsound);
 
 export function Model(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('/3Dmods/minecraft_chest.glb');
   const { actions } = useAnimations(animations, group);
   
-  const [open, setOpen] = useState(false);
-  const { rotation } = useSpring({
-    rotation: open ? [0, 0, 0] : [-Math.PI / 2, 0, 0],
-    config: { friction: 20 },
-  });
+  const [isplaying, setPlay] = useState(false);
+
+  useEffect(() => {
+    if (props.open) {
+      setPlay(true)
+      actions['Chest_0_A|Chest_0_AAction'].repetitions = 1;
+      soundChest.volume = 0.3;
+      soundChest.play()
+      actions['Chest_0_A|Chest_0_AAction'].play();
+      actions['Chest_0_A|Chest_0_AAction'].reset();
+      setTimeout(() => {
+        setPlay(false);
+      }, 1000);
+    }
+  }, [props.open]);
 
   const handleClick = () => {
-    setOpen(!open);
-    actions['Chest_0_A|Chest_0_AAction'].repetitions = 1
-    actions['Chest_0_A|Chest_0_AAction'].play();
-    actions['Chest_0_A|Chest_0_AAction'].reset();
+    if (!isplaying) {
+      props.setOpen(!props.open);
+    }
   };
 
   return (
