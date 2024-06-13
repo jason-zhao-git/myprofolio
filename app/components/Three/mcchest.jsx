@@ -28,9 +28,8 @@ export function Model(props) {
       soundChest.volume = 0.4;
       
       soundChest.play();
-      setTimeout(() => {
-        actions['Chest_0_A|Chest_0_AAction'].play();
-      }, 50);
+      actions['Chest_0_A|Chest_0_AAction'].play();
+     
       actions['Chest_0_A|Chest_0_AAction'].reset();
       setTimeout(() => {
         setPlay(false);
