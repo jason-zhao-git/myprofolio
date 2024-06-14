@@ -78,7 +78,7 @@ const Inventory = ({ skills }) => {
   const emptyCubesCount =
     (columns - (filteredSkills.length % columns)) % columns;
 
-  const theme = createTheme();
+  const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
