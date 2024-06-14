@@ -5,6 +5,28 @@ import styles from "../ex_styles/Inventory.css";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+
+const menuItems = [
+  { value: "Category0", label: "All" },
+  { value: "Category1", label: "Frontend" },
+  { value: "Category2", label: "Backend" },
+  { value: "Category3", label: "Database" },
+  { value: "Category4", label: "AI/ML" },
+  { value: "Category5", label: "Tools & Platforms" },
+  { value: "Category6", label: "Data Science" },
+  { value: "Category7", label: "Bioinformatics" },
+  { value: "Category8", label: "Programming Language" },
+  { value: "Category9", label: "Human Language" },
+  { value: "Category10", label: "Soft Skills" },
+  { value: "Category11", label: "Sports/Hobbies" },
+];
+
 function valuetext(value) {
   return `${value}`;
 }
@@ -21,6 +43,13 @@ const Inventory = ({ skills }) => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
     console.log(newValue);
+  };
+
+  //skill categrory
+  const [category, setCategory] = useState("All");
+  const handleCategoryChange = (event) => {
+    setCategory(event.target.value);
+    console.log(event.target.value);
   };
 
   const updateColumns = () => {
@@ -43,8 +72,15 @@ const Inventory = ({ skills }) => {
     return () => window.removeEventListener("resize", updateColumns);
   }, [columns]);
 
-  const filteredSkills = skills.filter(skill => isProficiencyInRange(skill, value));
-  const emptyCubesCount = (columns - (filteredSkills.length % columns)) % columns;
+  const filteredSkills = skills.filter((skill) =>
+    isProficiencyInRange(skill, value)
+  );
+  const emptyCubesCount =
+    (columns - (filteredSkills.length % columns)) % columns;
+
+  const theme = createTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   return (
     <div className=" bg-gray-400 rounded shadow-inner p-2 mb-4">
@@ -88,22 +124,70 @@ const Inventory = ({ skills }) => {
           </Box>
         </div>
       </div>
-      <div className="grid grid-cols-4 sm:grid-cols-${columns} sm:grid-cols-5 md:grid-cols-6  lg:grid-cols-8 xl:grid-cols-8 gap-2">
-        {filteredSkills.map((skill) =>
-          
-            <div
-              key={skill.id}
-              className="custom-border relative w-full aspect-square bg-gray-600 hover:bg-gray-400 flex items-center justify-center shadow-inner"
+      <div className="flex container items-center mb-4">
+        <h5 className="p-4 sm:pr-8 ml-6 md:text-xl text-bold text-gray-700">
+          Category:
+        </h5>
+        <div className="flex-grow mt-[-12px] sm:ml-6 mr-4 sm:mr-8 lg:mr-56">
+          <FormControl fullWidth>
+            <Select
+              id="category-select"
+              className="cate-border"
+              value={category}
+              onChange={handleCategoryChange}
+              MenuProps={{
+                PaperProps: {
+                  style: {
+                    maxHeight: 48 * 4.5 + 8, // Adjust the max height as needed
+                  },
+                },
+              }}
+              sx={{
+                backgroundColor: "#B0B0B0",
+                color: "#696969",
+                "& .MuiSelect-select": {
+                  padding:
+                    "15px 0px 0px 0px", // Conditional padding based on screen size
+                  fontSize: "1.25rem", // Adjust font size for smaller screens
+                  width: isSmallScreen ? '2ch' : isMediumScreen ? '6ch' : null,
+                },
+                "& .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#696969",
+                },
+                "&:hover .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#696969",
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderColor: "#696969",
+                },
+                "& .MuiSvgIcon-root": {
+                  color: "#696969",
+                },
+              }}
             >
-              <Image
-                src={skill.src}
-                alt={skill.name}
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          
-        )}
+              {menuItems.map((item) => (
+            <MenuItem key={item.value} value={item.value} className="cate-border">
+              {item.label}
+            </MenuItem>
+          ))}
+            </Select>
+          </FormControl>
+        </div>
+      </div>
+      <div className="grid grid-cols-4 sm:grid-cols-${columns} sm:grid-cols-5 md:grid-cols-6  lg:grid-cols-8 xl:grid-cols-8 gap-2">
+        {filteredSkills.map((skill) => (
+          <div
+            key={skill.id}
+            className="custom-border relative w-full aspect-square bg-gray-600 hover:bg-gray-400 flex items-center justify-center shadow-inner"
+          >
+            <Image
+              src={skill.src}
+              alt={skill.name}
+              layout="fill"
+              objectFit="contain"
+            />
+          </div>
+        ))}
         {[...Array(emptyCubesCount)].map((_, index) => (
           <div
             key={`empty-${index}`}
