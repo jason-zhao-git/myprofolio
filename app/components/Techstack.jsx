@@ -327,6 +327,27 @@ const skills = [
     src: "/skills/agile.svg",
     proficiency: 4,
   },
+  {
+    id: 47,
+    name: "Team Collaboration",
+    categories: ["Soft Skills"],
+    src: "/skills/collaboration.svg",
+    proficiency: 4,
+  },
+  {
+    id: 48,
+    name: "Creative Problem Solving",
+    categories: ["Soft Skills"],
+    src: "/skills/problem_solving.svg",
+    proficiency: 4,
+  },
+  {
+    id: 49,
+    name: "Time Management",
+    categories: ["Soft Skills"],
+    src: "/skills/time_management.svg",
+    proficiency: 4,
+  }
 ];
 
 
