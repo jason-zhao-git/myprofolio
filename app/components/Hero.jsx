@@ -44,7 +44,7 @@ const Hero = () => {
                 // Same substring at the start will only be typed out once, initially
                 "Jingqiao (Jason)",
                 2000, // wait 1s before replacing "Mice" with "Hamsters"
-                "A Software Engineer",
+                "A Software Developer",
                 3000,
                 "Awkwardly Social...",
                 1000,

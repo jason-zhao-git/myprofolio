@@ -13,18 +13,18 @@ import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const menuItems = [
-  { value: "Category0", label: "All" },
-  { value: "Category1", label: "Frontend" },
-  { value: "Category2", label: "Backend" },
-  { value: "Category3", label: "Database" },
-  { value: "Category4", label: "AI/ML" },
-  { value: "Category5", label: "Tools & Platforms" },
-  { value: "Category6", label: "Data Science" },
-  { value: "Category7", label: "Bioinformatics" },
-  { value: "Category8", label: "Programming Language" },
-  { value: "Category9", label: "Human Language" },
-  { value: "Category10", label: "Soft Skills" },
-  { value: "Category11", label: "Sports/Hobbies" },
+  { value: "All", label: "All" },
+  { value: "Frontend", label: "Frontend" },
+  { value: "Backend", label: "Backend" },
+  { value: "Database", label: "Database" },
+  { value: "AI/ML", label: "AI/ML" },
+  { value: "Tools & Platforms", label: "Tools & Platforms" },
+  { value: "Data Science", label: "Data Science" },
+  { value: "Bioinformatics", label: "Bioinformatics" },
+  { value: "Programming Language", label: "Programming Language" },
+  { value: "Human Language", label: "Human Language" },
+  { value: "Soft Skills", label: "Soft Skills" },
+  { value: "Sports/Hobbies", label: "Sports/Hobbies" },
 ];
 
 function valuetext(value) {
@@ -33,6 +33,10 @@ function valuetext(value) {
 
 function isProficiencyInRange(skill, range) {
   return skill.proficiency >= range[0] && skill.proficiency <= range[1];
+}
+
+function isCategory(skill, category) {
+  return skill.categories.includes(category) || category === "All"
 }
 
 const Inventory = ({ skills }) => {
@@ -71,10 +75,11 @@ const Inventory = ({ skills }) => {
     window.addEventListener("resize", updateColumns);
     return () => window.removeEventListener("resize", updateColumns);
   }, [columns]);
-
+//filter by proficiency
   const filteredSkills = skills.filter((skill) =>
-    isProficiencyInRange(skill, value)
+    isProficiencyInRange(skill, value) && isCategory(skill, category)
   );
+ 
   const emptyCubesCount =
     (columns - (filteredSkills.length % columns)) % columns;
 
@@ -186,6 +191,9 @@ const Inventory = ({ skills }) => {
               layout="fill"
               objectFit="contain"
             />
+            <div className="skill-name-overlay absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-gray-800 bg-opacity-75">
+      <span className="text-white text-sm lg:text-md font-bold">{skill.name}</span>
+    </div>
           </div>
         ))}
         {[...Array(emptyCubesCount)].map((_, index) => (

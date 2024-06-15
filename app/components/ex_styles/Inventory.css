@@ -1,41 +1,60 @@
 .custom-border {
-    border-top: thick double #373737;
-    border-left: thick double #373737;
-    border-right: double #ffffff;
-    border-bottom: double #ffffff;
-  }
-  @font-face {
-    font-family: 'Minecraftia';
-    src: url('../../../assets/fonts/Minecraftia-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  .cate-border {
-    font-family: 'Minecraftia', sans-serif; 
-    border-top: 4px double #373737;
-    border-left: 4px double #373737;
-    border-right: 4px double #ffffff;
-    border-bottom: 4px double #ffffff;
-    background-color: #b0b0b0; /* Light grey background for the button */
-    color: #373737; /* Text color */
-    padding: 10px; /* Padding inside the button */
-    text-align: center; /* Center the text */
-    margin: 5px; /* Margin between buttons */
-    box-shadow: 2px 2px #696969; /* Pixelated shadow effect */
-    cursor: pointer; /* Pointer cursor for clickable effect */
-    transition: transform 0.1s, box-shadow 0.1s; /* Smooth transition for hover effects */
-   
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-  }
-  
-  .cate-border:hover {
-    transform: translate(-2px, -2px); /* Move the button up and left on hover */
-    box-shadow: 4px 4px #373737; /* Increase the shadow size on hover */
-  }
-  
-  .cate-border:active {
-    transform: translate(2px, 2px); /* Move the button down and right on active */
-    box-shadow: 1px 1px #696969; /* Decrease the shadow size on active */
-  }
-  
+  border-top: thick double #373737;
+  border-left: thick double #373737;
+  border-right: double #ffffff;
+  border-bottom: double #ffffff;
+}
+@font-face {
+  font-family: "Minecraftia";
+  src: url("../../../assets/fonts/Minecraftia-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.cate-border {
+  font-family: "Minecraftia", sans-serif;
+  border-top: 4px double #373737;
+  border-left: 4px double #373737;
+  border-right: 4px double #ffffff;
+  border-bottom: 4px double #ffffff;
+  background-color: #b0b0b0; /* Light grey background for the button */
+  color: #373737; /* Text color */
+  padding: 10px; /* Padding inside the button */
+  text-align: center; /* Center the text */
+  margin: 5px; /* Margin between buttons */
+  box-shadow: 2px 2px #696969; /* Pixelated shadow effect */
+  cursor: pointer; /* Pointer cursor for clickable effect */
+  transition: transform 0.1s, box-shadow 0.1s; /* Smooth transition for hover effects */
+
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.cate-border:hover {
+  transform: translate(-2px, -2px); /* Move the button up and left on hover */
+  box-shadow: 4px 4px #373737; /* Increase the shadow size on hover */
+}
+
+.cate-border:active {
+  transform: translate(2px, 2px); /* Move the button down and right on active */
+  box-shadow: 1px 1px #696969; /* Decrease the shadow size on active */
+}
+
+.inventory {
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out,
+    max-height 1s ease-in-out;
+  transform-origin: top;
+  max-height: 1500px; /* Large enough to accommodate the expanded inventory */
+  overflow: auto;
+}
+
+.inventory.closed {
+  transform: scaleY(0);
+  opacity: 0;
+  max-height: 0;
+}
+
+.inventory.open {
+  transform: scaleY(1);
+  opacity: 1;
+  max-height: 1500px;
+}

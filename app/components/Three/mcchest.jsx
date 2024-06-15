@@ -16,25 +16,23 @@ const soundChest = new Audio(chestsound);
 
 export function Model(props) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('/3Dmods/minecraft_chest.glb');
+  const { nodes, materials, animations } = useGLTF('3Dmods/minecraft_chest.glb');
   const { actions } = useAnimations(animations, group);
   
   const [isplaying, setPlay] = useState(false);
 
   useEffect(() => {
-    if (props.open) {
       setPlay(true)
       actions['Chest_0_A|Chest_0_AAction'].repetitions = 1;
       soundChest.volume = 0.4;
-      
+      soundChest.pause();
+      soundChest.currentTime = 0;
       soundChest.play();
       actions['Chest_0_A|Chest_0_AAction'].play();
      
       actions['Chest_0_A|Chest_0_AAction'].reset();
-      setTimeout(() => {
-        setPlay(false);
-      }, 1000);
-    }
+      setPlay(false);
+      
   }, [props.open]);
 
   const handleClick = () => {
@@ -67,4 +65,4 @@ export function Model(props) {
   );
 }
 
-useGLTF.preload('/3Dmods/minecraft_chest.glb');
+useGLTF.preload('3Dmods/minecraft_chest.glb');

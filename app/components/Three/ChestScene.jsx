@@ -1,3 +1,4 @@
+
 import React, { Suspense, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Loader, OrbitControls } from '@react-three/drei';
@@ -11,15 +12,14 @@ const ChestScene = (props) => {
     <Canvas camera={{ position: [10, 10, 10], fov: 40 }}>
       <ambientLight intensity={1} />
       <directionalLight position={[0, 10, 5]} intensity={2} />
-      <Suspense fallback={<Loader />}>
-      
+
         <Model open={props.open} setOpen={props.setOpen}/>
         <OrbitControls minDistance={23} maxDistance={32} mouseButtons={{
             LEFT: THREE.MOUSE.ROTATE,
             MIDDLE: THREE.MOUSE.DOLLY,
-            RIGHT: null // Disable right click
+            RIGHT: THREE.MOUSE.ROTATE // Disable right click
             }}/>
-      </Suspense>
+ 
     </Canvas>
   );
 };
