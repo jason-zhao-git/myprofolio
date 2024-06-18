@@ -95,17 +95,20 @@ const Projects = () => {
       </div>
 
       <div className="relative flex items-center">
-      <MdChevronLeft
-        className="opacity-50 cursor-pointer hover:opacity-100"
-        onClick={slideLeft}
-        size={100}
-      />
+      <div className="absolute left-0 z-10">
+        <MdChevronLeft
+          className="opacity-50 cursor-pointer hover:opacity-100"
+          onClick={slideLeft}
+          size={40}
+        />
+      </div>
       <div
         id="slider"
-        className="flex overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide space-x-4"
+        className="flex overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide space-x-4 mx-10"
+        style={{ width: 'calc(100% - 80px)' }} // Adjust this width based on your requirements
       >
         {filteredProjects.map((project) => (
-          <div key={project.id}>
+          <div key={project.id} className="inline-block w-96"> {/* Adjust width as needed */}
             <ProjectCard
               title={project.title}
               description={project.description}
@@ -114,11 +117,13 @@ const Projects = () => {
           </div>
         ))}
       </div>
-      <MdChevronRight
-        className="opacity-50 cursor-pointer hover:opacity-100"
-        onClick={slideRight}
-        size={100}
-      />
+      <div className="absolute right-0 z-10">
+        <MdChevronRight
+          className="opacity-50 cursor-pointer hover:opacity-100"
+          onClick={slideRight}
+          size={40}
+        />
+      </div>
     </div>
       
     </section>

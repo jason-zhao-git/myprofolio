@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar";
 import AboutMe from "./components/AboutMe";
 import Techstack from "./components/Techstack";
 import Projects from "./components/Projects";
+import EmailSection from "./components/EmailSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -26,7 +28,11 @@ export default function Home() {
         <Projects />
       </container>
 
-      
+      <container class="container mx-auto px-12 py-4" id="projects"> 
+        <EmailSection />
+      </container>
+
+      <Footer />
       
     </main>
   );

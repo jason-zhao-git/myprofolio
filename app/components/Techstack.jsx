@@ -355,7 +355,7 @@ const skills = [
 
 
 const Techstack = () => {
-  const [chestopen, setchestOpen] = useState(true);
+  const [chestopen, setchestOpen] = useState(false);
   return (
     <section className="font-pixel p-10">
       {/* Title on top */}
