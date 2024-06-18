@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import AboutMe from "./components/AboutMe";
 import Techstack from "./components/Techstack";
+import Projects from "./components/Projects";
 
 export default function Home() {
   return (
@@ -19,6 +20,10 @@ export default function Home() {
 
       <container class="container mx-auto px-12 py-4" id="skills"> 
         <Techstack />
+      </container>
+
+      <container class="container mx-auto px-12 py-4" id="projects"> 
+        <Projects />
       </container>
 
       

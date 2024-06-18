@@ -99,7 +99,7 @@ const skills = [
   {
     id: 12,
     name: "Java Script",
-    categories: ["Programming Language", "Backend"],
+    categories: ["Programming Language", "Frontend"],
     src: "/skills/javascript.svg",
     proficiency: 3,
   },
