@@ -9,7 +9,7 @@ const ChestScene = (props) => {
     
 
   return (
-    <Canvas camera={{ position: [10, 10, 10], fov: 40 }}>
+    <Canvas camera={{ position: [10, 7, 10], fov: 40 }}>
       <ambientLight intensity={1} />
       <directionalLight position={[0, 10, 5]} intensity={2} />
 
