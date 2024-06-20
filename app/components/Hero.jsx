@@ -57,7 +57,7 @@ const Hero = () => {
               repeat={Infinity}
             />
           </h1>
-          <p className="text-[#ADB7BA] text-xl lg:text-3xl mb-6 mt-6 tracking-wider leading-loose">
+          <p className="text-[#ADB7BA] text-xl lg:text-3xl mb-6 mt-6 tracking-wider leading-loose font-mono">
             “The programmer, like the poet, works only slightly removed from
             pure thought-stuff. He builds his castles in the air, from air,
             creating by exertion of the imagination.” 

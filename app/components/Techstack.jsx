@@ -273,10 +273,10 @@ const skills = [
   },
   {
     id: 39,
-    name: "Archery",
+    name: "Anime",
     categories: ["Sports/Hobbies"],
-    src: "/skills/archery.svg",
-    proficiency: 1,
+    src: "/skills/anime.svg",
+    proficiency: 5,
   },
   {
     id: 40,

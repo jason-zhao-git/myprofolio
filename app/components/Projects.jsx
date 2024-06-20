@@ -76,7 +76,7 @@ const Projects = () => {
       <h2 className="text-5xl font-bold text-center text-white mt-4 mb-8 md:mb-12">
         My Projects
       </h2>
-      <div className="flex flex-row justify-center items-center gap-2 text-white my-6">
+      <div className="flex flex-row justify-center items-center gap-2 text-white my-16">
         <ProjectTag
           name="All"
           onClick={handleTagChange}

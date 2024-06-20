@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import AboutMe from "./components/AboutMe";
@@ -25,7 +25,7 @@ export default function Home() {
         <Techstack />
       </container>
 
-      <container class="container mx-auto px-12 py-4" id="skills"> 
+      <container class="container mx-auto px-12 py-4" id="experience"> 
         <Experience />
       </container>
 
@@ -33,7 +33,7 @@ export default function Home() {
         <Projects />
       </container>
 
-      <container class="container mx-auto px-12 py-4" id="projects"> 
+      <container class="container mx-auto px-12 py-4" id="contact"> 
         <EmailSection />
       </container>
 
