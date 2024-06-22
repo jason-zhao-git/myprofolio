@@ -29,6 +29,10 @@ const navLinks = [
     title: "Contact",
     path: "#contact",
   },
+  {
+    title: "Guestbook",
+    path: "#guestbook",
+  },
 ];
 
 const Navbar = () => {

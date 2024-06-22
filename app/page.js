@@ -21,12 +21,12 @@ export default function Home() {
         <AboutMe />
       </container>
 
-      <container class="container mx-auto px-12 py-4" id="skills"> 
-        <Techstack />
-      </container>
-
       <container class="container mx-auto px-12 py-4" id="experience"> 
         <Experience />
+      </container>
+
+      <container class="container mx-auto px-12 py-4" id="skills"> 
+        <Techstack />
       </container>
 
       <container class="container mx-auto px-12 py-4" id="projects"> 
