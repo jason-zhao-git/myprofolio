@@ -3,6 +3,7 @@ import React, { Suspense, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion, useScroll } from "framer-motion";
 import Expicon from "./Expicon";
+import styles from "./ex_styles/glow-text.css"
 
 const educationData = [
   {
@@ -135,7 +136,7 @@ const WorkFormat = ({
       >
         <h3 className=" capitalize font-bold text-xl">
           {position}&nbsp;{" "}
-          <a href={link} target="_blank" className=" capitalize text-pink-500">
+          <a href={link} target="_blank" className=" capitalize text-pink-500 text-glow">
             @{company}
           </a>
         </h3>
@@ -189,7 +190,7 @@ const EduFormat = ({ school, type, time, gpa, courses }) => {
       >
         <h3 className=" capitalize font-bold text-xl">{type}</h3>
         <span className="capitalize font-md text-white/65">
-          <div className="font-bold text-transparent bg-clip-text text-lg bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600">
+          <div className="font-bold text-transparent bg-clip-text text-lg bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 text-yellow-glow">
             {school}
           </div>
         </span>
