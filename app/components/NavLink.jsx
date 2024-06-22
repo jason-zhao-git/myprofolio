@@ -1,14 +1,27 @@
 import Link from "next/link";
 
 const NavLink = ({ href, title }) => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(href);
+    const offset = 90; // Adjust this value based on your Navbar height
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = targetElement.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <Link
-      href={href}
-      className={`block py-2 pl-3 pr-4 text-[#ADB7BE] sm:text-xl rounded md:p-0 hover:text-white font-pixel}`}
-    >
-      <p className="font-pixel">{title}</p>
-    </Link>
+    <a href={href} onClick={handleClick} className=" text-[#d7d8d8] font-pixel hover:text-gray-600">
+      <p className="font-pixel mt-2">{title}</p>
+    </a>
   );
+  
 };
 
 export default NavLink;

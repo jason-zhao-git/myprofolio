@@ -37,6 +37,13 @@ const educationData = [
       "Genetics",
     ],
   },
+  {
+    school: "Johns Hopkins University",
+    type: "Summer School, Bioengineering and Biomedical Engineering",
+    time: "May 2019 - Aug 2019",
+    gpa: "4.0",
+    courses: ["General Molecular Biology", "Protein Engineering and Biochemistry"], // Add specific courses if needed
+  },
 ];
 
 const workExperienceData = [
@@ -113,14 +120,14 @@ const WorkFormat = ({
   work,
   codeLinks,
 }) => {
-  const ref = useRef(null);
+  const refw = useRef(null);
   const workItems = work.split("•").filter((item) => item.trim() !== "");
   return (
     <li
-      ref={ref}
+      ref={refw}
       className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col item-center justify-between"
     >
-      <Expicon reference={ref} />
+      <Expicon reference={refw} />
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
@@ -168,13 +175,13 @@ const WorkFormat = ({
 };
 
 const EduFormat = ({ school, type, time, gpa, courses }) => {
-  const ref = useRef(null);
+  const refe = useRef(null);
   return (
     <li
-      ref={ref}
+      ref={refe}
       className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col item-center justify-between"
     >
-      <Expicon reference={ref} />
+      <Expicon reference={refe} />
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
@@ -182,7 +189,7 @@ const EduFormat = ({ school, type, time, gpa, courses }) => {
       >
         <h3 className=" capitalize font-bold text-xl">{type}</h3>
         <span className="capitalize font-md text-white/65">
-          <div className="font-bold text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600">
+          <div className="font-bold text-transparent bg-clip-text text-lg bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600">
             {school}
           </div>
         </span>
@@ -202,7 +209,7 @@ const Experience = () => {
   const [tableopen, settableOpen] = useState(true);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "center start"],
+    offset: ["start 70%", "center start"],
   });
 
   return (
@@ -226,6 +233,7 @@ const Experience = () => {
       </div>
 
       {/* The timeline part of resume */}
+      <div>
       <div ref={ref} className="w-[75%] mx-auto relative">
         <motion.div
           style={{ scaleY: scrollYProgress }}
@@ -248,7 +256,6 @@ const Experience = () => {
             />
           ))}
         </ul>
-
         <h3 className="text-3xl font-bold text-center text-white mt-20 mb-20">
           Education
         </h3>
@@ -264,6 +271,7 @@ const Experience = () => {
             />
           ))}
         </ul>
+      </div>
       </div>
     </section>
   );

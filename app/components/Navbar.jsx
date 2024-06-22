@@ -40,7 +40,7 @@ const Navbar = () => {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
  //making sure if forgot to close toggle the expanded list auto go back
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)");
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
     const handleMediaQueryChange = (e) => {
       setIsLargeScreen(e.matches);
@@ -55,18 +55,18 @@ const Navbar = () => {
     };
   }, [navbarOpen]);
   return (
-    <nav>
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2 mt-6 mb-6">
-        <Link href={"/"} className="text-5xl text-white font-semibold md:ml-10">
+    <nav  className="fixed top-0 left-0 w-full bg-zinc-900 z-50 lg:border-b lg:border-gray-400">
+      <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-1 mt-2 mb-0">
+        <Link href={"/"} className="text-xl text-white font-semibold md:ml-10">
           <Image
             src="/images/logo.png"
             alt="LOGO"
-            className={`${styles.blurEffect}`}
-            width={80}
-            height={100}
+            className={`${styles.blurEffect} ml-24`}
+            width={60}
+            height={60}
           ></Image>
         </Link>
-        <div className="mobile-menu block md:hidden">
+        <div className="mobile-menu block lg:hidden">
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
@@ -83,8 +83,8 @@ const Navbar = () => {
             </button>
           )}
         </div>
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+        <div className="menu hidden lg:block lg:w-auto" id="navbar">
+          <ul className="flex p-4 lg:p-0 lg:flex-row lg:space-x-8 mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
                 <NavLink href={link.path} title={link.title} />
