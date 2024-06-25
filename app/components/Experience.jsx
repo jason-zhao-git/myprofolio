@@ -136,7 +136,7 @@ const WorkFormat = ({
       >
         <h3 className=" capitalize font-bold text-xl">
           {position}&nbsp;{" "}
-          <a href={link} target="_blank" className=" capitalize text-pink-500 text-glow">
+          <a href={link} target="_blank" className=" capitalize text-teal-500 text-glow">
             @{company}
           </a>
         </h3>

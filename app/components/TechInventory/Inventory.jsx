@@ -171,7 +171,7 @@ const Inventory = ({ skills }) => {
               }}
             >
               {menuItems.map((item) => (
-            <MenuItem key={item.value} value={item.value} className="cate-border">
+            <MenuItem key={item.value} value={item.value} className="cate-border font-pixel">
               {item.label}
             </MenuItem>
           ))}

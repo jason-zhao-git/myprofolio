@@ -1,6 +1,6 @@
 .text-glow {
-    color: rgb(88 230 217 / var(--tw-text-opacity));
-    text-shadow: 0 0 3px rgba(88, 230, 217, 0.5);
+    
+    text-shadow: 0 0 5px rgba(84, 202, 193, 0.5);
 }
 
 .text-yellow-glow {

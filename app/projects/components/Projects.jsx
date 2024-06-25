@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ProjectCard from "./proj/ProjectCard.jsx";
 import ProjectTag from "./proj/ProjectTag.jsx";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import styles from "./ex_styles/hidscroll.css";
+import styles from "../exstyles/hidscroll.css";
 
 const projectsData = [
   {

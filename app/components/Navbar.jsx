@@ -11,27 +11,30 @@ import styles from "./ex_styles/Navbar.module.css";
 const navLinks = [
   {
     title: "About",
-    path: "#about",
+    path: "/#about",
   },
   {
     title: "Skills",
-    path: "#skills",
+    path: "/#skills",
   },
   {
+    route: true,
     title: "Experience",
-    path: "#experience",
+    path: "./experience",
   },
   {
+    route: true,
     title: "Projects",
-    path: "#projects",
+    path: "./projects",
   },
   {
     title: "Contact",
-    path: "#contact",
+    path: "/#contact",
   },
   {
+    route: true,
     title: "Guestbook",
-    path: "#guestbook",
+    path: "./guestbook",
   },
 ];
 
@@ -57,11 +60,11 @@ const Navbar = () => {
   return (
     <nav  className="fixed top-0 left-0 w-full bg-zinc-900 z-50 lg:border-b lg:border-gray-400">
       <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-1 mt-2 mb-0">
-        <Link href={"/"} className="text-xl text-white font-semibold md:ml-10">
+        <Link href={"/"} className="text-xl text-white font-semibold lg:ml-10">
           <Image
             src="/images/logo.png"
             alt="LOGO"
-            className={`${styles.blurEffect} ml-24`}
+            className={`${styles.blurEffect} lg:ml-24`}
             width={60}
             height={60}
           ></Image>
@@ -86,10 +89,19 @@ const Navbar = () => {
         <div className="menu hidden lg:block lg:w-auto" id="navbar">
           <ul className="flex p-4 lg:p-0 lg:flex-row lg:space-x-8 mt-0">
             {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink href={link.path} title={link.title} />
-              </li>
+              link.route ? (
+                <li key={index}>
+                  <Link href={link.path} key={link.title} className="text-[#d7d8d8] font-pixel hover:text-gray-600">
+                    <div className="mt-2">{link.title}</div>
+                  </Link>
+                </li>
+              ) : (
+                <li key={index}>
+                  <NavLink href={link.path} title={link.title} />
+                </li>
+              )
             ))}
+          
           </ul>
         </div>
       </div>

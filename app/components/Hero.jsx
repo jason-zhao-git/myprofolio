@@ -22,10 +22,20 @@ const Hero = () => {
           </div>
           {/*Hire Me and download Resume buttons */}
           <div className="mt-12 flex flex-col items-center lg:flex-center lg:items-center lg:flex-row lg:justify-center">
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-2 lg:mr-4 mb-4 border bg-white hover:bg-slate-300 text-slate-800 font-semibold">
+            <a
+              className="px-6 py-3 w-full sm:w-fit rounded-full mr-2 lg:mr-4 mb-4 border bg-white hover:bg-slate-300 text-slate-800 font-semibold"
+              href="/Jingqiao_resume.pdf" // This path points to the resume file in the public folder
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <p className="mt-2">My Resume</p>
-            </button>
-            <button className="px-5 py-3 w-full sm:w-fit rounded-full mr-2 mb-4 bg-transparent hover:bg-gradient-to-br from-blue-700 via-teal-600 to-green-700 p-8 border-2 border-white text-white font-semibold">
+            </a>
+            <button
+              className="px-5 py-3 w-full sm:w-fit rounded-full mr-2 mb-4 bg-transparent hover:bg-gradient-to-br from-blue-700 via-teal-600 to-green-700 p-8 border-2 border-white text-white/90 font-semibold"
+              onClick={() =>
+                (window.location.href = "mailto:jingz-plz-reply@berkeley.edu")
+              }
+            >
               <p className="mt-2">Contact Me</p>
             </button>
           </div>
@@ -60,7 +70,7 @@ const Hero = () => {
           <p className="text-[#ADB7BA] text-xl lg:text-3xl mb-6 mt-6 tracking-wider leading-loose font-mono">
             “The programmer, like the poet, works only slightly removed from
             pure thought-stuff. He builds his castles in the air, from air,
-            creating by exertion of the imagination.” 
+            creating by exertion of the imagination.”
             <br></br>
             <br></br>
             -- Frederick P. Brooks, MMM{" "}
