@@ -54,9 +54,8 @@ const Guestbook = () => {
       </Link>
       <div className="">
         {messages.map((message, index) => (
-          <MovSec>
+          <MovSec key={index}>
             <div
-              key={index}
               className="p-4 bg-gray-800 rounded-lg flex items-center space-x-4"
             >
               <div className="flex-shrink-0 w-12 h-12 text-blue-200 bg-gray-600 rounded-full flex items-center justify-center text-xl font-bold">
