@@ -2,7 +2,7 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./ex_styles/glow-text.css";
-import { useEffect } from "react";
+
 
 const Expicon = ({ reference }) => {
   const { scrollYProgress } = useScroll({
