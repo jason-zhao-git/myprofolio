@@ -6,10 +6,56 @@ import Image from "next/image";
 
 import { Box, FormControlLabel, Checkbox } from "@mui/material";
 
+const POST_MSG_API_URL = process.env.NEXT_PUBLIC_POST_MSG_API_URL;
+
 const EmailSection = () => {
   const [gbook, setGbook] = useState(false);
-  const handle = () => {
+  const handleCheckboxChange = () => {
     setGbook(!gbook);
+  };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const dataToSubmit = { ...formData, show_on_guestbook: gbook };
+
+    try {
+      const response = await fetch(POST_MSG_API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataToSubmit),
+      });
+
+      if (response.ok) {
+        setStatusMessage("Message submitted successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        setGbook(false);
+      } else {
+        setStatusMessage("Error submitting message.");
+      }
+    } catch (error) {
+      console.error("Error submitting message:", error);
+      setStatusMessage("Error submitting message.");
+    }
   };
 
   return (
@@ -35,7 +81,7 @@ const EmailSection = () => {
         </div>
       </div>
       <div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="mb-6 flex">
             <div className="mr-8">
               <label
@@ -47,6 +93,8 @@ const EmailSection = () => {
               <input
                 type="text"
                 id="name"
+                value={formData.name}
+                onChange={handleInputChange}
                 className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 font-mono"
                 placeholder="Jason Zhao"
                 required
@@ -63,6 +111,8 @@ const EmailSection = () => {
               <input
                 type="email"
                 id="email"
+                value={formData.email}
+                onChange={handleInputChange}
                 className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 font-mono"
                 placeholder="jacob@google.com"
                 required
@@ -80,6 +130,8 @@ const EmailSection = () => {
             <input
               type="text"
               id="subject"
+              value={formData.subject}
+              onChange={handleInputChange}
               className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 font-mono"
               placeholder="Just say hi"
             />
@@ -94,8 +146,11 @@ const EmailSection = () => {
             </label>
             <textarea
               id="message"
+              value={formData.message}
+              onChange={handleInputChange}
               className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 h-52 font-mono"
               placeholder="Let's talk about..."
+              required
             />
           </div>
 
@@ -113,12 +168,12 @@ const EmailSection = () => {
                       },
                     }}
                     checked={gbook}
-                    onChange={handle}
+                    onChange={handleCheckboxChange}
                   />
                 }
                 sx={{
                   "& .MuiFormControlLabel-label": {
-                    fontSize: "14px",
+                    fontSize: "15px",
                     color: "white",
                   },
                 }}
@@ -126,7 +181,7 @@ const EmailSection = () => {
             </Box>
 
             <div></div>
-            <div className="text-gray-400 text-sm font-mono">
+            <div className="text-gray-400 text-md font-mono">
               Your name, message, and submission date will appear in the
               Guestbook.
             </div>
@@ -147,6 +202,9 @@ const EmailSection = () => {
             </button>
           </div>
         </form>
+        {statusMessage && (
+          <p className="text-center text-white mt-4">{statusMessage}</p>
+        )}
       </div>
     </section>
   );
