@@ -3,7 +3,7 @@ import React, { Suspense, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion, useScroll } from "framer-motion";
 import Expicon from "./Expicon";
-import styles from "./ex_styles/glow-text.css"
+import styles from "./ex_styles/glow-text.css";
 
 const educationData = [
   {
