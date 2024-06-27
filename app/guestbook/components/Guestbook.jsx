@@ -64,7 +64,7 @@ const Guestbook = () => {
               </div>
               <div>
                 <p className="font-semibold mb-1 mr-1">
-                    <span className=" text-blue-200">{message.name}</span> · {formatDistanceToNow(new Date(message.date), { addSuffix: true })}
+                    <span className=" text-orange-200">{message.name}</span> · <span className="text-slate-200">{formatDistanceToNow(new Date(message.date), { addSuffix: true })}</span>
                 </p>
                 <p className="mr-1 text-blue-100">{message.message}</p>
               </div>

@@ -3,59 +3,14 @@ import React, { useState } from "react";
 
 import Link from "next/link";
 import Image from "next/image";
+import ContactForm from "./ContactForm";
 
-import { Box, FormControlLabel, Checkbox } from "@mui/material";
-
-const POST_MSG_API_URL = process.env.NEXT_PUBLIC_POST_MSG_API_URL;
 
 const EmailSection = () => {
-  const [gbook, setGbook] = useState(false);
-  const handleCheckboxChange = () => {
-    setGbook(!gbook);
-  };
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [statusMessage, setStatusMessage] = useState("");
-
-  const handleInputChange = (e) => {
-    const { id, value } = e.target;
-    setFormData({ ...formData, [id]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const dataToSubmit = { ...formData, show_on_guestbook: gbook };
-
-    try {
-      const response = await fetch(POST_MSG_API_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(dataToSubmit),
-      });
-
-      if (response.ok) {
-        setStatusMessage("Message submitted successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-        setGbook(false);
-      } else {
-        setStatusMessage("Error submitting message.");
-      }
-    } catch (error) {
-      console.error("Error submitting message:", error);
-      setStatusMessage("Error submitting message.");
-    }
+  
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const handleFormSuccess = () => {
+    setFormSubmitted(true);
   };
 
   return (
@@ -81,129 +36,21 @@ const EmailSection = () => {
         </div>
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-6 flex">
-            <div className="mr-8">
-              <label
-                htmlFor="name"
-                className="block mb-2 text-sm font-medium text-white"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 font-mono"
-                placeholder="Jason Zhao"
-                required
-              />
-            </div>
-
-            <div className="ml-8">
-              <label
-                htmlFor="email"
-                className="block mb-2 text-sm font-medium text-white"
-              >
-                Your email
-              </label>
-              <input
-                type="email"
-                id="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 font-mono"
-                placeholder="jacob@google.com"
-                required
-              />
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="subject"
-              className="block mb-2 text-sm font-medium text-white"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              value={formData.subject}
-              onChange={handleInputChange}
-              className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 font-mono"
-              placeholder="Just say hi"
+        {!formSubmitted ? (
+          <ContactForm onSuccess={handleFormSuccess} />
+        ) : (
+          <div className="flex flex-col items-center h-full">
+            <Image
+              src="/images/check.svg"
+              width={80}
+              height={80}
+              alt="Check Icon"
+              className="mb-6 mt-2"
             />
+            <p className="text-center text-white/80 mt-4">Message submitted successfully!</p>
+            
+            <p className="text-center font-mono font-semibold text-xl text-white/80 mt-4">Thank you so much for reaching out! I will respond promptly, should you have provided your email address.</p>
           </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="message"
-              className="block mb-2 text-sm font-medium text-white"
-            >
-              Message
-            </label>
-            <textarea
-              id="message"
-              value={formData.message}
-              onChange={handleInputChange}
-              className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 h-52 font-mono"
-              placeholder="Let's talk about..."
-              required
-            />
-          </div>
-
-          <div className="mb-6 text-white">
-            <Box>
-              <FormControlLabel
-                label="Show my message in the guestbook."
-                control={
-                  <Checkbox
-                    size="small"
-                    sx={{
-                      color: "white",
-                      "&.Mui-checked": {
-                        color: "white",
-                      },
-                    }}
-                    checked={gbook}
-                    onChange={handleCheckboxChange}
-                  />
-                }
-                sx={{
-                  "& .MuiFormControlLabel-label": {
-                    fontSize: "15px",
-                    color: "white",
-                  },
-                }}
-              />
-            </Box>
-
-            <div></div>
-            <div className="text-gray-400 text-md font-mono">
-              Your name, message, and submission date will appear in the
-              Guestbook.
-            </div>
-          </div>
-
-          <div className="relative p-8 mb-6 rounded-md">
-            <button
-              type="submit"
-              className="text-sm bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-3 rounded-sm absolute bottom-0 right-0 flex items-center"
-            >
-              <Image
-                src="/images/send.svg"
-                width={20}
-                height={20}
-                alt="Send Icon"
-              />
-              <span className="ml-2 mt-2">Send Message</span>
-            </button>
-          </div>
-        </form>
-        {statusMessage && (
-          <p className="text-center text-white mt-4">{statusMessage}</p>
         )}
       </div>
     </section>

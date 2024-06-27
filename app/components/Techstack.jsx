@@ -125,6 +125,13 @@ const skills = [
     proficiency: 4,
   },
   {
+    id: 50,
+    name: "Django REST API",
+    categories: ["Backend"],
+    src: "/skills/DRF.svg",
+    proficiency: 2,
+  },
+  {
     id: 16,
     name: "Postgre SQL",
     categories: ["Database", "Backend"],
@@ -343,11 +350,12 @@ const skills = [
   },
   {
     id: 49,
-    name: "Time Management",
+    name: "Django REST API",
     categories: ["Soft Skills"],
     src: "/skills/time_management.svg",
     proficiency: 4,
-  }
+  },
+  
 ];
 
 
