@@ -8,8 +8,8 @@ export default function EmailTemplate({ name, email, subject, message }) {
             <h2 className="text-xl font-semibold text-gray-800">Hi, {name}</h2>
             <p className="mt-2 text-lg text-gray-700">
               Thank you so much for reaching out! I just wanted to let you know
-              that I've received your message, and I appreciate you taking the
-              time to write to me. I aim to reply within 48 hours, so you'll hear
+              that I&apos;ve received your message, and I appreciate you taking the
+              time to write to me. I aim to reply within 48 hours, so you&apos;ll hear
               from me soon.
             </p>
             <p className="mt-4 text-gray-700"><strong>New message submitted:</strong></p>
