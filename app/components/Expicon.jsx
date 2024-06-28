@@ -6,6 +6,7 @@ import styles from "./ex_styles/glow-text.css";
 
 const Expicon = ({ reference }) => {
   const { scrollYProgress } = useScroll({
+    layoutEffect: false,
     target: reference,
     offset: ["center end", "center center"],
   });

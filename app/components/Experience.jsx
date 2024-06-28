@@ -121,14 +121,14 @@ const WorkFormat = ({
   work,
   codeLinks,
 }) => {
-  const refw = useRef(null);
+  const ref = useRef(null);
   const workItems = work.split("•").filter((item) => item.trim() !== "");
   return (
     <li
-      ref={refw}
+      ref={ref}
       className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col item-center justify-between"
     >
-      <Expicon reference={refw} />
+      <Expicon reference={ref} />
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
@@ -176,13 +176,13 @@ const WorkFormat = ({
 };
 
 const EduFormat = ({ school, type, time, gpa, courses }) => {
-  const refe = useRef(null);
+  const ref = useRef(null);
   return (
     <li
-      ref={refe}
+      ref={ref}
       className="my-8 first:mt-0 last:mb-0 w-[60%] mx-auto flex flex-col item-center justify-between"
     >
-      <Expicon reference={refe} />
+      <Expicon reference={ref} />
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}
@@ -209,6 +209,7 @@ const Experience = () => {
   const ref = useRef(null);
   const [tableopen, settableOpen] = useState(true);
   const { scrollYProgress } = useScroll({
+    layoutEffect: false,
     target: ref,
     offset: ["start 70%", "center start"],
   });
