@@ -151,21 +151,21 @@ const WorkFormat = ({
           ))}
         </div>
         {codeLinks && (
-          <div className="w-full flex items-center space-x-2 mt-2">
+          <div className="w-full flex items-start  space-x-2 mt-2">
             <div className="font-mono font-bold text-xl text-transparent bg-clip-text bg-gradient-to-br from-blue-400 via-teal-300 to-green-400">
               Links:
             </div>
             <div className="flex flex-wrap space-x-4">
               {codeLinks.map(([name, url], index) => (
-                <a
+                <div
                   key={index}
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-300 hover:underline mt-3"
+                  className="text-blue-300 hover:underline mt-2"
                 >
                   {name}
-                </a>
+                </div>
               ))}
             </div>
           </div>
