@@ -111,6 +111,13 @@ const skills = [
     proficiency: 3,
   },
   {
+    id: 51,
+    name: "x86",
+    categories: ["Programming Language"],
+    src: "/skills/x86.svg",
+    proficiency: 1,
+  },
+  {
     id: 14,
     name: "Go",
     categories: ["Programming Language", "Backend"],

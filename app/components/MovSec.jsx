@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 const MovSec = ({ id, children }) => {
   return (
-    <div id={id} className="container mx-auto px-12 py-4">
+    <div id={id} className="container mx-auto px-8 py-4">
       <motion.div
         initial={{ y: 50 }}
         whileInView={{ y: 0 }}

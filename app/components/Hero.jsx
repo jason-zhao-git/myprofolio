@@ -21,17 +21,17 @@ const Hero = () => {
             ></Image>
           </div>
           {/*Hire Me and download Resume buttons */}
-          <div className="mt-12 flex flex-col items-center lg:flex-center lg:items-center lg:flex-row lg:justify-center">
+          <div className="mt-12 flex flex-col items-center lg:flex-row lg:justify-center">
             <a
-              className="px-6 py-3 w-full sm:w-fit rounded-full mr-2 lg:mr-4 mb-4 border bg-white hover:bg-slate-300 text-slate-800 font-semibold"
-              href="/Jingqiao_resume.pdf" // This path points to the resume file in the public folder
+              className="px-5 py-3 w-full sm:w-fit rounded-full mr-2 mb-4 lg:mb-0 border border-2 bg-white hover:bg-slate-300 text-slate-800 font-semibold text-center"
+              href="/Jingqiao_Resume.pdf" // This path points to the resume file in the public folder
               target="_blank"
               rel="noopener noreferrer"
             >
               <p className="mt-2">My Resume</p>
             </a>
             <button
-              className="px-5 py-3 w-full sm:w-fit rounded-full mr-2 mb-4 bg-transparent hover:bg-gradient-to-br from-blue-700 via-teal-600 to-green-700 p-8 border-2 border-white text-white/90 font-semibold"
+              className="px-5 py-3 w-full sm:w-fit lg:ml-2 rounded-full bg-transparent hover:bg-gradient-to-br from-blue-700 via-teal-600 to-green-700 p-8 border-2 border-white text-white/90 font-semibold text-center"
               onClick={() =>
                 (window.location.href = "mailto:jingz-plz-reply@berkeley.edu")
               }

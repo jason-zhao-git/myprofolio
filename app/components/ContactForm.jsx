@@ -19,6 +19,36 @@ const ContactForm = ({ onSuccess }) => {
     subject: "",
     message: "",
   });
+  
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  const handleEmailSubmit = async (data) => {
+    const JSONdata = JSON.stringify(data);
+    const endpoint = "/api/send";
+
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSONdata,
+    };
+
+    try {
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
+
+      if (response.status === 200) {
+        console.log("Message sent.");
+        setEmailSubmitted(true);
+        onSuccess(data.name);
+      } else {
+        console.error("Failed to send email:", resData);
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
 
   const [statusMessage, setStatusMessage] = useState("");
 
@@ -31,6 +61,10 @@ const ContactForm = ({ onSuccess }) => {
     e.preventDefault();
     const dataToSubmit = { ...formData, show_on_guestbook: gbook };
 
+    // Call the handleEmailSubmit function
+    await handleEmailSubmit(dataToSubmit);
+
+    // Handle the guestbook submission
     try {
       const response = await fetch(POST_MSG_API_URL, {
         method: "POST",
@@ -42,6 +76,7 @@ const ContactForm = ({ onSuccess }) => {
 
       if (response.ok) {
         setStatusMessage("Message submitted successfully!");
+        onSuccess(formData.name);
         setFormData({
           name: "",
           email: "",
@@ -49,7 +84,6 @@ const ContactForm = ({ onSuccess }) => {
           message: "",
         });
         setGbook(false);
-        onSuccess();
       } else {
         setStatusMessage("Error submitting message.");
       }
