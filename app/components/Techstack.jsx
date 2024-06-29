@@ -357,7 +357,7 @@ const skills = [
   },
   {
     id: 49,
-    name: "Django REST API",
+    name: "Time Management",
     categories: ["Soft Skills"],
     src: "/skills/time_management.svg",
     proficiency: 4,

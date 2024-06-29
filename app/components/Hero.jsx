@@ -24,7 +24,7 @@ const Hero = () => {
           <div className="mt-12 flex flex-col items-center lg:flex-row lg:justify-center">
             <a
               className="px-5 py-3 w-full sm:w-fit rounded-full mr-2 mb-4 lg:mb-0 border border-2 bg-white hover:bg-slate-300 text-slate-800 font-semibold text-center"
-              href="/Jingqiao_Resume.pdf" // This path points to the resume file in the public folder
+              href="/Jingqiao_resume.pdf" // This path points to the resume file in the public folder
               target="_blank"
               rel="noopener noreferrer"
             >
