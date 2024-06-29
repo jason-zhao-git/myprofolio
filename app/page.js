@@ -1,3 +1,4 @@
+"use client"
 import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
 import Techstack from "./components/Techstack";

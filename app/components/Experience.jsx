@@ -134,7 +134,7 @@ const WorkFormat = ({
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
       >
-        <h3 className=" capitalize font-bold text-xl">
+        <h3 className=" capitalize font-bold text-xl text-white">
           {position}&nbsp;{" "}
           <a href={link} target="_blank" className=" capitalize text-teal-500 text-glow">
             @{company}
@@ -188,7 +188,7 @@ const EduFormat = ({ school, type, time, gpa, courses }) => {
         whileInView={{ y: 0 }}
         transition={{ duration: 0.5, type: "spring" }}
       >
-        <h3 className=" capitalize font-bold text-xl">{type}</h3>
+        <h3 className=" capitalize font-bold text-white text-xl">{type}</h3>
         <span className="capitalize font-md text-white/65">
           <div className="font-bold text-transparent bg-clip-text text-lg bg-gradient-to-br from-orange-400 via-yellow-500 to-yellow-600 text-yellow-glow">
             {school}
