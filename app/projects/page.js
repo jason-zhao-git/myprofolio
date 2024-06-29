@@ -132,7 +132,7 @@ export default function Home() {
             Berkeley Project Deck
             </div>
             <div className="text-lg text-white/75 font-mono w-full max-w-4xl mb-1">
-            These select projects highlight my survival through Berkeley's rigorous curriculum. They required substantial effort and provided invaluable lessons. Please note that these projects are close-sourced to maintain academic honesty.
+            These select projects highlight my survival through Berkeley&#39;s rigorous curriculum. They required substantial effort and provided invaluable lessons. Please note that these projects are close-sourced to maintain academic honesty.
             </div>{" "}
           </div>
           <Projects projects={bklprojectList} />
