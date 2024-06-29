@@ -36,7 +36,7 @@ function isProficiencyInRange(skill, range) {
 }
 
 function isCategory(skill, category) {
-  return skill.categories.includes(category) || category === "All"
+  return skill.categories.includes(category) || category === "All";
 }
 
 const Inventory = ({ skills }) => {
@@ -75,17 +75,17 @@ const Inventory = ({ skills }) => {
     window.addEventListener("resize", updateColumns);
     return () => window.removeEventListener("resize", updateColumns);
   }, [columns]);
-//filter by proficiency
-  const filteredSkills = skills.filter((skill) =>
-    isProficiencyInRange(skill, value) && isCategory(skill, category)
+  //filter by proficiency
+  const filteredSkills = skills.filter(
+    (skill) => isProficiencyInRange(skill, value) && isCategory(skill, category)
   );
- 
+
   const emptyCubesCount =
     (columns - (filteredSkills.length % columns)) % columns;
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
   return (
     <div className=" bg-gray-400 rounded shadow-inner p-2 mb-4">
@@ -151,10 +151,9 @@ const Inventory = ({ skills }) => {
                 backgroundColor: "#B0B0B0",
                 color: "#696969",
                 "& .MuiSelect-select": {
-                  padding:
-                    "15px 0px 0px 0px", // Conditional padding based on screen size
+                  padding: "15px 0px 0px 0px", // Conditional padding based on screen size
                   fontSize: "1.25rem", // Adjust font size for smaller screens
-                  width: isSmallScreen ? '2ch' : isMediumScreen ? '6ch' : null,
+                  width: isSmallScreen ? "2ch" : isMediumScreen ? "6ch" : null,
                 },
                 "& .MuiOutlinedInput-notchedOutline": {
                   borderColor: "#696969",
@@ -171,10 +170,14 @@ const Inventory = ({ skills }) => {
               }}
             >
               {menuItems.map((item) => (
-            <MenuItem key={item.value} value={item.value} className="cate-border font-pixel">
-              {item.label}
-            </MenuItem>
-          ))}
+                <MenuItem
+                  key={item.value}
+                  value={item.value}
+                  className="cate-border font-pixel"
+                >
+                  {item.label}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </div>
@@ -188,12 +191,14 @@ const Inventory = ({ skills }) => {
             <Image
               src={skill.src}
               alt={skill.name}
-              layout="fill"
-              objectFit="contain"
+              fill
+              style={{ objectFit: "contain" }}
             />
             <div className="skill-name-overlay absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 bg-gray-800 bg-opacity-75">
-      <span className="text-white text-sm lg:text-md font-bold">{skill.name}</span>
-    </div>
+              <span className="text-white text-sm lg:text-md font-bold">
+                {skill.name}
+              </span>
+            </div>
           </div>
         ))}
         {[...Array(emptyCubesCount)].map((_, index) => (

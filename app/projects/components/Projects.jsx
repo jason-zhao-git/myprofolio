@@ -1,131 +1,60 @@
-"use client";
+"use client"
 import React, { useState } from "react";
-import ProjectCard from "./proj/ProjectCard.jsx";
-import ProjectTag from "./proj/ProjectTag.jsx";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
-import styles from "../exstyles/hidscroll.css";
+import SwiperCard from "./swiper_proj/SwiperCard";
 
-const projectsData = [
-  {
-    id: 1,
-    title: "React Portfolio Website",
-    description: "Project 1 description",
-    image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-  },
-  {
-    id: 2,
-    title: "Potography Portfolio Website",
-    description: "Project 2 description",
-    image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-  },
-  {
-    id: 3,
-    title: "E-commerce Application",
-    description: "Project 3 description",
-    image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-  },
-  {
-    id: 4,
-    title: "Food Ordering Application",
-    description: "Project 4 description",
-    image: "/images/projects/1.png",
-    tag: ["All", "Mobile"],
-  },
-  {
-    id: 5,
-    title: "React Firebase Template",
-    description: "Authentication and CRUD operations",
-    image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-  },
-  {
-    id: 6,
-    title: "Full-stack Roadmap",
-    description: "Project 5 description",
-    image: "/images/projects/1.png",
-    tag: ["All", "Web"],
-  },
-];
+const Projects = ({ projects }) => {
+  const [activeProject, setActiveProject] = useState(projects[0]);
 
-const Projects = () => {
-  const [tag, setTag] = useState("All");
-
-  const filteredProjects = projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
-
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
+  const handleSlideChange = (index) => {
+    setActiveProject(projects[index]);
   };
 
-  const slideLeft = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
-  };
-
-  const slideRight = () => {
-    var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 500;
-  };
-
+  const slides = projects.map(project => project.image);
   return (
-    <section className="font-pixel p-10">
-      <h2 className="text-5xl font-bold text-center text-white mt-4 mb-8 md:mb-12">
-        My Projects
-      </h2>
-      <div className="flex flex-row justify-center items-center gap-2 text-white my-16">
-        <ProjectTag
-          name="All"
-          onClick={handleTagChange}
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          name="Web"
-          onClick={handleTagChange}
-          isSelected={tag === "Web"}
-        />
-        <ProjectTag
-          name="AI/ML"
-          onClick={handleTagChange}
-          isSelected={tag == "AI/ML"}
-        />
-      </div>
-
-      <div className="relative flex items-center">
-      <div className="absolute left-0 z-10">
-        <MdChevronLeft
-          className="opacity-50 cursor-pointer hover:opacity-100"
-          onClick={slideLeft}
-          size={40}
-        />
-      </div>
+    <section className="flex justify-center items-center h-full p-4">
       <div
-        id="slider"
-        className="flex overflow-x-scroll scroll-smooth whitespace-nowrap scrollbar-hide space-x-4 mx-10"
-        style={{ width: 'calc(100% - 80px)' }} // Adjust this width based on your requirements
+        className="content flex flex-col md:flex-row justify-center items-center gap-4 bg-gradient-to-b from-[rgba(255,255,255,0.15)] to-[rgba(255,255,255,0.05)] backdrop-blur-lg rounded-2xl w-full max-w-4xl border border-[rgba(255,255,255,0.2)] shadow-[inset_0_0_4px_rgba(255,255,255,0.2),_0_4px_16px_rgba(0,0,0,0.1)]"
       >
-        {filteredProjects.map((project) => (
-          <div key={project.id} className="inline-block w-96"> {/* Adjust width as needed */}
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-            />
+        <div className="text-left p-8 md:p-10 md:ml-6 w-full md:w-1/2">
+          <h2 className="text-xl font-semibold font-pixel text-gray-200 mb-2">
+            {activeProject.name}
+          </h2>
+          <p className=" text-slate-400 mb-2 md:mb-4">
+            {activeProject.description}
+          </p> 
+          {activeProject.tech && activeProject.tech.length > 0 && (
+            <div className="flex flex-wrap gap-2">
+              {activeProject.tech.map((tech, index) => (
+                <span key={index} className="bg-gray-700 text-gray-200 text-sm px-2 py-1 rounded-md">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          )}
+          
+          <div className="flex flex-wrap gap-2">
+            {activeProject.demo && (
+              <a href={activeProject.demo} className="text-blue-500 hover:font-bold sm:mr-4 mr-1">
+                Demo
+              </a>
+            )}
+            {activeProject.code && (
+              <a href={activeProject.code} className="text-blue-500 hover:font-bold">
+                Code
+              </a>
+            )}
+            {activeProject.spec && (
+              <a href={activeProject.spec} className="text-blue-500 hover:font-bold">
+                Spec
+              </a>
+            )}
           </div>
-        ))}
+        </div>
+
+        <div className="w-full md:w-1/2 p-4 md:p-8">
+          <SwiperCard slides={slides} onSlideChange={handleSlideChange} />
+        </div>
       </div>
-      <div className="absolute right-0 z-10">
-        <MdChevronRight
-          className="opacity-50 cursor-pointer hover:opacity-100"
-          onClick={slideRight}
-          size={40}
-        />
-      </div>
-    </div>
-      
     </section>
   );
 };

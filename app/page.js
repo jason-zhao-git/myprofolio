@@ -2,7 +2,7 @@ import Hero from "./components/Hero";
 import AboutMe from "./components/AboutMe";
 import Techstack from "./components/Techstack";
 import Experience from "./components/Experience";
-import Projects from "./projects/components/Projects";
+import Projects from "./projects/components/Projects_old";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import MovSec from "./components/MovSec"; 
