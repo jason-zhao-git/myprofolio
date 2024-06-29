@@ -43,7 +43,7 @@ const Guestbook = () => {
       <h1 className="py-4 text-3xl font-bold font-pixel text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700">
         Guestbook
       </h1>
-      <p className="text-lg mb-8 font-mono">
+      <p className="text-lg mb-8 text-white/85 font-mono">
         Leave a note in my guestbook. Share your thoughts, stories, or a just
         say hi!
       </p>
