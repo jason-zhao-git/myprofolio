@@ -20,12 +20,13 @@ const Footer = () => {
           <Link href="https://github.com/jason-zhao-git">
             <p className="text-white mx-2 hover:text-gray-400"><FaGithub size={24} /></p>
           </Link>
-          <Link href="">
-            <p className="text-white mx-2 hover:text-gray-400"><FaTwitter size={24} /></p>
-          </Link>
           <Link href="https://www.linkedin.com/in/jingqiao-zhao/">
             <p className="text-white mx-2 hover:text-gray-400"><FaLinkedin size={24} /></p>
           </Link>
+          <Link href="#">
+            <p className="text-white mx-2 hover:text-gray-400"><FaTwitter size={24} /></p>
+          </Link>
+          
         </div>
         
       </div>
