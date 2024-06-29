@@ -3,7 +3,7 @@ import Projects from "./components/Projects";
 import MovSec from "../components/MovSec";
 import Footer from "../components/Footer";
 import { FaArrowDown } from "react-icons/fa";
-
+import styles from "../components/ex_styles/glow-text.css"
 const projectList = [
   {
     name: "Project One",
@@ -128,7 +128,7 @@ export default function Home() {
 
         <MovSec id="projects">
           <div className="w-full flex flex-col items-center justify-center text-center text-white font-pixel">
-            <div className="text-2xl text-white/85 font-semibold mb-3">
+            <div className="text-2xl text-transparent bg-clip-text bg-gradient-to-br from-orange-400/80 via-yellow-500/90 to-yellow-600/80 font-semibold p-3">
             Berkeley Project Deck
             </div>
             <div className="text-lg text-white/75 font-mono w-full max-w-4xl mb-1">

@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCards } from "swiper/modules";
 import Image from "next/image";
-import "../../exstyles/swiperstyle/style.css";
+import "../../../components/ex_styles/swiperstyle/style.css";
 
 import { Autoplay, Pagination, Mousewheel } from 'swiper/modules';
 
