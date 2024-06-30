@@ -31,7 +31,7 @@ const Footer = () => {
         
       </div>
       <div className="border-t border-gray-700 mt-8 pt-4">
-        <p className="text-center text-gray-500">© 2024 JZHAO. All rights reserved.</p>
+        <p className="text-center text-gray-500">© 2024 JZHAO. All rights reserved. Icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
       </div>
     </footer>
   );

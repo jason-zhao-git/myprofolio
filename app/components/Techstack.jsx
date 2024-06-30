@@ -139,6 +139,13 @@ const skills = [
     proficiency: 2,
   },
   {
+    id: 51,
+    name: "Prisma",
+    categories: ["Backend"],
+    src: "/skills/prisma.svg",
+    proficiency: 1,
+  },
+  {
     id: 16,
     name: "Postgre SQL",
     categories: ["Database", "Backend"],
