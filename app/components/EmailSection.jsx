@@ -51,7 +51,7 @@ const EmailSection = () => {
             />
             <p className="text-center text-white/80 mt-4">Message submitted successfully!</p>
             
-            <p className="text-center font-mono font-semibold text-xl text-white/80 mt-4">Thank you so much for reaching out, <span className="text-green-400">{userName}</span>! I will respond promptly, should you have provided your email address.</p>
+            <p className="text-center font-mono font-semibold text-xl text-white/80 mt-4">Thank you so much for reaching out, <span className="text-green-400">{userName}</span>! I will respond promptly. A confirmation has been sent out, should you have provided your email address.</p>
           </div>
         )}
       </div>

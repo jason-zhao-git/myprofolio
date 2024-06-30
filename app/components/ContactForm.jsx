@@ -62,7 +62,10 @@ const ContactForm = ({ onSuccess }) => {
     const dataToSubmit = { ...formData, show_on_guestbook: gbook };
 
     // Call the handleEmailSubmit function
-    await handleEmailSubmit(dataToSubmit);
+    // Check if an email address is provided before calling handleEmailSubmit
+    if (formData.email) {
+      await handleEmailSubmit(dataToSubmit);
+    }
 
     // Handle the guestbook submission
     try {
@@ -128,7 +131,6 @@ const ContactForm = ({ onSuccess }) => {
             onChange={handleInputChange}
             className="bg-gray-800 border border-gray-700 placeholder-gray-400 text-gray-100 text-sm rounded-lg block w-full p-3 font-mono"
             placeholder="jacob@google.com"
-            required
           />
         </div>
       </div>
@@ -197,9 +199,12 @@ const ContactForm = ({ onSuccess }) => {
         <div className="text-gray-400 text-md font-mono">
           Your name, message, and submission date will appear in the Guestbook.
         </div>
+        <div className="text-gray-400 text-md font-mono">
+          If you just want to leave a guestbook note, email is not required.
+        </div>
       </div>
 
-      <div className="relative p-8 mb-6 rounded-md">
+      <div className="relative p-8 mb-6 mr-4 rounded-md">
         <button
           type="submit"
           className="text-sm bg-blue-700 hover:bg-blue-800 text-white font-medium py-2 px-3 rounded-sm absolute bottom-0 right-0 flex items-center"
