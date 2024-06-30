@@ -22,14 +22,17 @@ const Guestbook = () => {
         "name": "Jason Zhao",
         "message": "Hi everybody! Welcome to my website!"
     }]);
-    //console.log(`${MSG_API_URL}`)
+
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        
-        const response = await fetch(LIST_MSG_API_URL);
+        const response = await fetch('/api/messages');
+        if (!response.ok) {
+          throw new Error('Failed to fetch messages');
+        }
         const data = await response.json();
-        setMessages(data.results);
+       
+        setMessages(data);
       } catch (error) {
         console.error("Error fetching messages:", error);
       }

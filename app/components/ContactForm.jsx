@@ -5,8 +5,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Box, FormControlLabel, Checkbox } from "@mui/material";
 
-const POST_MSG_API_URL = process.env.NEXT_PUBLIC_POST_MSG_API_URL;
-
 const ContactForm = ({ onSuccess }) => {
   const [gbook, setGbook] = useState(false);
   const handleCheckboxChange = () => {
@@ -69,15 +67,17 @@ const ContactForm = ({ onSuccess }) => {
 
     // Handle the guestbook submission
     try {
-      const response = await fetch(POST_MSG_API_URL, {
-        method: "POST",
+      const response = await fetch('/api/messages', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(dataToSubmit),
       });
 
       if (response.ok) {
+        const result = await response.json();
+        console.log('Message created:', result);
         setStatusMessage("Message submitted successfully!");
         onSuccess(formData.name);
         setFormData({
