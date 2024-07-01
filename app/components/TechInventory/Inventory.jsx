@@ -185,7 +185,7 @@ const Inventory = ({ skills }) => {
       <div className="grid grid-cols-4 sm:grid-cols-${columns} sm:grid-cols-5 md:grid-cols-6  lg:grid-cols-8 xl:grid-cols-8 gap-2">
         {filteredSkills.map((skill) => (
           <div
-            key={skill.id}
+            key={skill.name}
             className="custom-border relative w-full aspect-square bg-gray-600 hover:bg-gray-400 flex items-center justify-center shadow-inner"
           >
             <Image
