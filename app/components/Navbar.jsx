@@ -87,7 +87,7 @@ const Navbar = () => {
           )}
         </div>
         <div className="menu hidden lg:block lg:w-auto" id="navbar">
-          <ul className="flex p-4 lg:p-0 lg:flex-row lg:space-x-8 mt-0">
+          <ul className="flex text-lg p-4 lg:p-0 lg:flex-row lg:space-x-8 mt-0">
             {navLinks.map((link, index) => (
               link.route ? (
                 <li key={index}>
