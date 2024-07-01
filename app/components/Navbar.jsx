@@ -60,7 +60,7 @@ const Navbar = () => {
   return (
     <nav  className="fixed top-0 left-0 w-full bg-zinc-900 z-50 lg:border-b lg:border-gray-400">
       <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-1 mt-2 mb-0">
-        <Link href={"/"} className="text-xl text-white font-semibold lg:ml-10">
+        <Link href={"./"} className="text-xl text-white font-semibold lg:ml-10">
           <Image
             src="/images/logo.png"
             alt="LOGO"
