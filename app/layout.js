@@ -8,6 +8,9 @@ export const metadata = {
   title: "Jason Zhao",
   description: "Jingqiao Zhao's personal profolio website",
   //disable dark reader on all websites
+  icons: {
+    icon: "/initicon.svg",
+  },
   other: { darkreader: "disable" },
 };
 

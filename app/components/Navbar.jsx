@@ -62,7 +62,7 @@ const Navbar = () => {
       <div className="flex container flex-wrap items-center justify-between mx-auto px-4 py-1 mt-2 mb-0">
         <Link href={"./"} className="text-xl text-white font-semibold lg:ml-10">
           <Image
-            src="/images/logo.png"
+            src="/images/logo.svg"
             alt="LOGO"
             className={`${styles.blurEffect} lg:ml-24`}
             width={60}
