@@ -6,6 +6,7 @@ import Experience from "./components/Experience";
 import EmailSection from "./components/EmailSection";
 import Footer from "./components/Footer";
 import MovSec from "./components/MovSec"; 
+import "./globals.css";
 
 export default function Home() {
   // Added pt-16 to the main element to add top padding, ensuring that the Hero section is not blocked by the fixed Navbar.
