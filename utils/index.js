@@ -112,7 +112,7 @@ export const FeaturedList = [
       </div>
     ),
     tag: "Web Development",
-    image: "/images/projects/aiquest2.png",
+    image: "/images/projects/aiquest1.png",
     tech: ["Next.js", "React", "TypeScript", "JavaScript"],
     demo: "https://ai-powered-achvments.vercel.app/",
     code: "https://github.com/jason-zhao-git/ai-powered-achvments",
