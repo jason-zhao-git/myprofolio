@@ -33,9 +33,7 @@ const FeaturedProj = ({
             <h2 className="text-xl font-semibold font-pixel text-gray-200 mb-2">
               {name}
             </h2>
-            <div className="text-slate-400 mb-2 md:mb-4">
-              {description}
-            </div>
+            <div className="text-slate-400 mb-2 md:mb-4">{description}</div>
             {tech && tech.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
                 {tech.map((techItem, index) => (
@@ -49,38 +47,38 @@ const FeaturedProj = ({
               </div>
             )}
             <div className="flex flex-wrap gap-4 mb-6">
-              {demo && (
-                <Button
-                  variant="outline"
-                  as="a"
-                  href={demo}
-                  className="flex items-center gap-1 text-blue-500 hover:bg-blue-200 hover:border-blue-200"
-                >
-                  <Binary />
-                  Demo
-                </Button>
+            {demo && (
+                <a href={demo} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-1 text-blue-500 hover:bg-blue-200 hover:border-blue-200"
+                  >
+                    <TvMinimalPlay />
+                    Demo
+                  </Button>
+                </a>
               )}
               {code && (
-                <Button
-                  variant="outline"
-                  as="a"
-                  href={code}
-                  className="flex items-center gap-1 text-green-600 hover:bg-green-200 hover:border-green-200"
-                >
-                  <TvMinimalPlay />
-                  Code
-                </Button>
+                <a href={code} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-1 text-green-600 hover:bg-green-200 hover:border-green-200"
+                  >
+                    <Binary />
+                    Code
+                  </Button>
+                </a>
               )}
               {spec && (
-                <Button
-                  variant="outline"
-                  as="a"
-                  href={spec}
-                  className="flex items-center gap-1 text-purple-500 hover:bg-purple-200 hover:border-purple-200"
-                >
-                  <ScanText />
-                  Spec
-                </Button>
+                <a href={spec} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-1 text-purple-500 hover:bg-purple-200 hover:border-purple-200"
+                  >
+                    <ScanText />
+                    Spec
+                  </Button>
+                </a>
               )}
             </div>
           </div>
