@@ -74,7 +74,7 @@ export const bklprojectList = [
 
 export const FeaturedList = [
   {
-    name: '"AI-Flow" Interactive Quest Builder',
+    name: '"Quest-Flow" Interactive Quest Builder',
     description: (
       <div>
         <p>
