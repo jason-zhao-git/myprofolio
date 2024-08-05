@@ -30,7 +30,7 @@ export default function Home() {
           <MovSec id="randoprojects">
             <div className="w-full flex flex-col items-center justify-center text-center text-white font-pixel mt-2">
               <div className="text-2xl text-transparent bg-clip-text bg-gradient-to-br from-purple-500/80 via-red-400/90 to-pink-600/80 font-semibold p-3">
-                "Intrusive Thoughts"
+              &quot;Intrusive Thoughts&quot;
               </div>
               <div className="text-xl text-white/75 font-mono w-full max-w-4xl mb-1">
                 This section is dedicated to showcasing a collection of quirky,

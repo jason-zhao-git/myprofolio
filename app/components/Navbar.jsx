@@ -19,13 +19,13 @@ const navLinks = [
   },
   {
     route: true,
-    title: "Experience",
-    path: "./experience",
+    title: "Projects",
+    path: "./projects",
   },
   {
     route: true,
-    title: "Projects",
-    path: "./projects",
+    title: "Experience",
+    path: "./experience",
   },
   {
     title: "Contact",

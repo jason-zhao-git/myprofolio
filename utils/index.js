@@ -133,5 +133,42 @@ export const FeaturedList = [
     code: "https://github.com/jason-zhao-git/ai-powered-achvments",
     spec: "https://github.com/jason-zhao-git/ai-powered-achvments",
   },
-  // Add more projects as needed
+
+  {
+    name: 'Pixelated Portfolio',
+    description: (
+      <div>
+        <p>
+          Built a personal website showcasing my portfolio and projects, designed to introduce myself in a fun and creative style.
+        </p>
+        <p className="mt-2">Key features include:</p>
+        <ul>
+          <li>
+            • <strong>Fun and Engaging Design:</strong> Uses vibrant colors and animations to create an interactive user experience.
+          </li>
+          <li>
+            • <strong>Email API Integration:</strong> Seamlessly handles contact form submissions with serverless functions.
+          </li>
+          <li>
+            • <strong>Guestbook Backend:</strong> Utilizes Prisma to manage guestbook entries with ease and efficiency.
+          </li>
+          <li>
+            • <strong>Responsive Layout:</strong> Ensures the site looks great on both desktop and mobile devices.
+          </li>
+          <li>
+            • <strong>Projects and 3D Showcase:</strong> Features personal projects with dynamic content management. And experimented with multiple 3D effects using Three.js.
+          </li>
+        </ul>
+        <p className="mt-2">
+          This project combines modern web technologies to deliver a unique and engaging online presence, <strong>hope you emjoy it!</strong>
+        </p>
+      </div>
+    ),
+    tag: "Web Development",
+    image: "/images/projects/personalweb.png", 
+    tech: ["Next.js", "React", "Tailwind CSS", "JavaScript", "Prisma", "Three.js"],
+    demo: "https://jingqiaozhao.dev/", 
+    code: "https://github.com/jason-zhao-git/myprofolio", 
+    spec: "https://github.com/jason-zhao-git/myprofolio/blob/master/README.md", 
+  },
 ];

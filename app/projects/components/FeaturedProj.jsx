@@ -17,7 +17,7 @@ const FeaturedProj = ({
   spec,
 }) => {
   return (
-    <Tilt>
+    <Tilt className="mb-12">
       <div className="container h-full w-full bg-white bg-opacity-10 rounded-3xl shadow-lg border-2 border-opacity-50 border-white backdrop-filter backdrop-blur-lg backdrop-saturate-100 flex p-6">
         <div className="flex flex-col md:flex-row items-center w-full">
           <div className="w-full md:w-1/3 lg:p-6 z-10">
