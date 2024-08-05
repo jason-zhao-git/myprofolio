@@ -72,6 +72,21 @@ export const bklprojectList = [
   },
 ];
 
+export const randoprojects = [
+  {
+    name: "Polite Shell",
+    description:
+      "Well, turns out a basic shell is not too hard to build. An interactive command-line program that enforces politeness before executing commands. This shell adds a fun twist to your typical experience by requiring polite language and offering unique commands.",
+    tag: "Shell",
+    image: "/images/projects/politeshell.png",
+    tech: ["Go", "Shell", "Unix/Linux"],
+    course: "None",
+    code: "https://github.com/jason-zhao-git/politeshell/tree/main",
+    spec: "https://github.com/jason-zhao-git/politeshell/blob/main/README.md"
+  },
+]
+
+
 export const FeaturedList = [
   {
     name: '"Quest-Flow" Interactive Quest Builder',

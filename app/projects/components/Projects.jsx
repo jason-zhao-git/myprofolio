@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import SwiperCard from "./swiper_proj/SwiperCard";
+import { Binary, TvMinimalPlay, ScanText } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Projects = ({ projects }) => {
   const [activeProject, setActiveProject] = useState(projects[0]);
@@ -32,22 +34,40 @@ const Projects = ({ projects }) => {
             </div>
           )}
           
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-4 mt-4 -mb-2">
             {activeProject.demo && (
-              <a href={activeProject.demo} className="text-blue-500 hover:font-bold sm:mr-4 mr-1">
-                Demo
-              </a>
-            )}
-            {activeProject.code && (
-              <a href={activeProject.code} className="text-blue-500 hover:font-bold">
-                Code
-              </a>
-            )}
-            {activeProject.spec && (
-              <a href={activeProject.spec} className="text-blue-500 hover:font-bold">
-                Spec
-              </a>
-            )}
+                <a href={activeProject.demo} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-1 text-blue-500 hover:bg-blue-200 hover:border-blue-200"
+                  >
+                    <TvMinimalPlay />
+                    Demo
+                  </Button>
+                </a>
+              )}
+              {activeProject.code && (
+                <a href={activeProject.code} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-1 text-green-600 hover:bg-green-200 hover:border-green-200"
+                  >
+                    <Binary />
+                    Code
+                  </Button>
+                </a>
+              )}
+              {activeProject.spec && (
+                <a href={activeProject.spec} target="_blank" rel="noopener noreferrer">
+                  <Button
+                    variant="outline"
+                    className="flex items-center gap-1 text-purple-500 hover:bg-purple-200 hover:border-purple-200"
+                  >
+                    <ScanText />
+                    Spec
+                  </Button>
+                </a>
+              )}
           </div>
         </div>
 
